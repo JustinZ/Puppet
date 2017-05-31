@@ -1,4 +1,4 @@
 #Default role
-class role::da_host {
+class role::devops_host {
   include profile::base 
 }
