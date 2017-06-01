@@ -1,6 +1,6 @@
 class profile::base {
 #variables definitions
-  class {'::selinux':
+  class { selinux:
     mode => disabled,
     }
 }
