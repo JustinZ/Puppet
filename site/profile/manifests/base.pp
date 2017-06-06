@@ -3,8 +3,6 @@ class profile::base {
   class { selinux:
     mode => disabled,
     }
-}
-
 class {'::sudo':} 
   sudo::conf {'wheel':
     content => "%wheel ALL=(ALL) NOPASSWD: ALL",
@@ -12,3 +10,5 @@ class {'::sudo':}
   sudo::conf {'rbackup':
     content => "Defaults:rbackup !requiretty
 rbackup ALL = NOPASSWD: /usr/bin/rsync"}
+}
+
