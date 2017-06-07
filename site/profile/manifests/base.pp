@@ -1,7 +1,8 @@
 class profile::base {
 #variables definitions
   class { '::selinux':
-    mode => disabled,
+#old design without hiera    mode => disabled,   
+    mode => $selinux_mode
     }
 class {'::sudo':} 
   sudo::conf {'wheel':
