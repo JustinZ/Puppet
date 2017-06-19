@@ -8,3 +8,5 @@ mod "mysql",
 	:git => "git@github.com:JustinZ/mysql.git"	
 mod "nginx",
 	:git => "git@github.com:JustinZ/nginx.git"		
+mod "concat",
+	:git => "git@github.com:JustinZ/concat.git"		
