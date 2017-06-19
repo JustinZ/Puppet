@@ -6,4 +6,5 @@ mod "sudo",
 	:git => "git@github.com:JustinZ/sudo.git"
 mod "mysql",
 	:git => "git@github.com:JustinZ/mysql.git"	
-	
+mod "nginx",
+	:git => "git@github.com:JustinZ/nginx.git"		
