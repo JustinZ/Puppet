@@ -3,7 +3,8 @@ class { 'nginx': }
 nginx::resource::server { "${fqdn}":
   www_root => "/var/www/${fqdn}",
 }
-class index {
-"/var/www/${fqdn}/index.html":content => "Hello World";  
+file {"/var/www/${fqdn}/index.html":
+ensure  => present  
+content => "Hello World";  
 }
 }
