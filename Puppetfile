@@ -9,4 +9,6 @@ mod "mysql",
 mod "nginx",
 	:git => "git@github.com:JustinZ/nginx.git"		
 mod "concat",
-	:git => "git@github.com:JustinZ/concat.git"		
+	:git => "git@github.com:JustinZ/concat.git"	
+mod "ntp",
+	:git => "git@github.com:JustinZ/ntp.git"			
