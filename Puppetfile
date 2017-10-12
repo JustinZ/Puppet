@@ -11,4 +11,6 @@ mod "nginx",
 mod "concat",
 	:git => "git@github.com:JustinZ/concat.git"	
 mod "ntp",
-	:git => "git@github.com:JustinZ/ntp.git"			
+	:git => "git@github.com:JustinZ/ntp.git"
+mod "fooacl",		
+	:git => "git@github.com:JustinZ/puppet-fooacl.git"		

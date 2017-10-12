@@ -13,4 +13,10 @@ file {"/var/www/${fqdn}/index.html":
 ensure  => present,  
 content => "Hello World",  
 }
+fooacl::conf { '${fqdn}':
+  target      => '/var/www/${fqdn}',
+  permissions => [
+    'user:justin:rwX',
+  ],
+}
 }
