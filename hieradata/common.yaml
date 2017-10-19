@@ -3,5 +3,5 @@
 selinux::mode:
   disabled
 fooacl::permissions:
-  'user:justin:rwX'
+  'user:justin:r-X'
  
