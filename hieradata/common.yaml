@@ -14,7 +14,14 @@ fooacl::permissions:
 
 
 
-      
+###############SSH settings#################
+ssh::permit_root_login: "no"
+ssh::sshd_x11_forwarding: "yes"
+ssh::sshd_config_permitemptypasswords: "no"
+ssh::sshd_config_permituserenvironment: "no"
+ssh::sshd_config_login_grace_time: "60"
+
+############################################  
 ##### sshd settings #####
 ssh::sshd_config_subsystem_sftp: "internal-sftp -f LOCAL6 -l VERBOSE"
 ssh::sshd_config_syslog_facility: "LOCAL6"
