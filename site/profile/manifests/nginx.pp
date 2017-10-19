@@ -16,6 +16,8 @@ content => "Hello World",
 }
 fooacl::conf { '${fqdn}':
   target      => '/var/www/${fqdn}',
-  permissions => 'user:justin:rwX',
+  permissions => [
+  $fooacl_permissons,
+  ],
 }
 }
