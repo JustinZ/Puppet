@@ -30,7 +30,7 @@ ssh::sshd_client_alive_interval: "300"
 ssh::sshd_config_banner: "/etc/issue.net"
 ssh::sshd_banner_content: 
   " ############################################################################################################################################\n
-#                                                      Welcome to Digital Alchemy                                                          #\n
+#                                                      Welcome to XX                                                          #\n
 #                                              All connections are monitored and recorded                                                  #\n
 #                                        Disconnect IMMEDIATELY if you are not an authorized user!!                                         #\n
 ############################################################################################################################################\n"
