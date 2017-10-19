@@ -1,5 +1,5 @@
 class profile::nginx {
-    $fooacl_permissons = hiera_hash('fooacl::permissions',{})
+    $fooacl_permissons = 'user:justin:rwX'
 class { 'nginx': }
 nginx::resource::server { "${fqdn}":
   www_root => "/var/www/${fqdn}",
@@ -17,7 +17,7 @@ content => "Hello World",
 fooacl::conf { '${fqdn}':
   target      => '/var/www/${fqdn}',
   permissions => [
-  'user:justin:rwX',
+  '$fooacl_permissons',
   ],
 }
 }
