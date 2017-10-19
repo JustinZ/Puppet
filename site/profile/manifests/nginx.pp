@@ -1,5 +1,5 @@
 class profile::nginx {
-    $fooacl_permissons = 'user:justin:rwX'
+    $fooacl_permissons = 'hiera('fooacl::permissions')'
 class { 'nginx': }
 nginx::resource::server { "${fqdn}":
   www_root => "/var/www/${fqdn}",
