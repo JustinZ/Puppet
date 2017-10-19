@@ -13,4 +13,10 @@ mod "concat",
 mod "ntp",
 	:git => "git@github.com:JustinZ/ntp.git"
 mod "fooacl",		
-	:git => "git@github.com:JustinZ/puppet-fooacl.git"		
+	:git => "git@github.com:JustinZ/puppet-fooacl.git"	
+mod "ssh",
+	:git => "git@github.com:JustinZ/sshd.git"
+mod "chroot_ssh",
+    :git => 'git@github.com:JustinZ/chroot_ssh.git'	
+mod "accounts",
+	:git => "git@github.com:JustinZ/accounts.git"    		
