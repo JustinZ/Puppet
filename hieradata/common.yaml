@@ -4,4 +4,5 @@ selinux::mode:
   disabled
 fooacl::permissions:
   'user:justin:r-X'
+  'user:nginx:r-X'
  
