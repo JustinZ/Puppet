@@ -1,8 +1,89 @@
 ---
+
+
+
 ###############selinux settings#################
 selinux::mode:
   disabled
 fooacl::permissions:
 - 'user:justin:r-X'
 - 'user:nginx:r-X'
- 
+
+
+
+
+
+
+      
+##### sshd settings #####
+ssh::sshd_config_subsystem_sftp: "internal-sftp -f LOCAL6 -l VERBOSE"
+ssh::sshd_config_syslog_facility: "LOCAL6"
+ssh::sshd_x11_forwarding: "no"
+ssh::sshd_client_alive_interval: "300"
+ssh::sshd_config_banner: "/etc/issue.net"
+ssh::sshd_banner_content: 
+  " ############################################################################################################################################\n
+#                                                      Welcome to Digital Alchemy                                                          #\n
+#                                              All connections are monitored and recorded                                                  #\n
+#                                        Disconnect IMMEDIATELY if you are not an authorized user!!                                         #\n
+############################################################################################################################################\n"
+##################################################
+
+
+
+
+
+
+###### SFTP Chrooted accounts list ###### 
+accounts::users:
+  xerox:
+    uid: 2018
+    shell: /bin/false
+  vendor1:
+    uid: 2019
+    shell: /bin/false
+  vendor2:
+    uid: 2020
+    shell: /bin/false
+    
+###### list of available ssh keys ######
+accounts::ssh_keys:
+  justin.zhang@puppet:
+    type: ssh-rsa
+    public: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQC58MirOHLZuQcZxg/sgr8XBoi9RDIshYfduMwfb5Pb+mgoeTCmlY3uTNXWwIsdhDgLxzr85kf++7hk6snhVPE9aEwPM7gk+8R+f2f6Vv0qLAFDy2f566C2HQTSyw7I3Y7WaIwg4YVcnEELVvD/0hHnr1AgD9d+FtVFyzCRwMvshxqoyvPHEZesUjClqnqLjFFspWrPbx4UwOYsYpHEO07E30KtetU8MXLd0fQGhItkSyj8n1rPAPdASKDZkKF9/VfCF9V92/JLZnay+ZfgFzNnej4GTiqxXTKjx7aKghbm3IQD+u3B0R43VtMZ2ijf7qqBcccXFtKxw+FqDQk1o/27'
+
+
+###########################################################
+
+
+#######SFTP module variables: ######
+####format is $owner: 
+####  [list of folders under /chroot/ folder that will belong to this owner] 
+#### owner has to be pre-created #################
+sftp_folders::folders:
+  xerox:
+    - xerox/vendor1
+    - xerox/vendor2      
+
+
+#####################################
+
+###### SSH_config_match - Name a user who will own chroot folder######
+ssh::sshd_config_match:
+  User xerox:
+    - ChrootDirectory /chroot/xerox
+    - AllowTcpForwarding "no"
+    - ForceCommand internal-sftp -f LOCAL6 -l VERBOSE
+    - X11Forwarding "no"   
+  User vendor1:
+    - ChrootDirectory /chroot/xerox/vendor1
+    - AllowTcpForwarding "no"
+    - ForceCommand internal-sftp -f LOCAL6 -l VERBOSE
+    - X11Forwarding "no"      
+  User vendor2:
+    - ChrootDirectory /chroot/xerox/vendor2
+    - AllowTcpForwarding "no"
+    - ForceCommand internal-sftp -f LOCAL6 -l VERBOSE
+    - X11Forwarding "no"    
+    
+          
