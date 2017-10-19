@@ -17,7 +17,7 @@ content => "Hello World",
 fooacl::conf { '${fqdn}':
   target      => '/var/www/${fqdn}',
   permissions => [
-  hiera_hash('fooacl::permissions',{}),
+  'user:justin:rwX',
   ],
 }
 }
