@@ -6,6 +6,7 @@
 selinux::mode:
   disabled
 fooacl::permissions:
+ xerox:
 - 'user:justin:r-X'
 - 'user:nginx:r-X'
 
